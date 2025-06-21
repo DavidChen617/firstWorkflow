@@ -2,7 +2,7 @@ name: Exploring Variable and Secrets
 
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "* * * * *"
 #  push
 
 env:
@@ -15,10 +15,9 @@ jobs:
     steps:
       - name: Dokcer build
         run: echo docker build -t ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
-      
+
       - name: Docker login
         run: echo docker login --username=${{vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD}}
 
       - name: Docker publish
         run: echo docker push ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
-
