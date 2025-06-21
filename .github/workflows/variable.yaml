@@ -1,8 +1,10 @@
 name: Exploring Variable and Secrets
 
 on:
-  schedule:
-    - cron: "* * * * *"
+  workflow_dispatch:
+    
+  # schedule:
+    # - cron: "* * * * *"
 #  push
 
 env:
