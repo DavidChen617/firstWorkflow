@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker deploy
+        timeout-minutes: 0.5
         run: |
           echo docker deploy ....
           sleep 600
