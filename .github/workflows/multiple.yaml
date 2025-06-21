@@ -25,7 +25,8 @@ jobs:
     needs: build_job_1
     runs-on: ubuntu-latest
     steps:
-      - name: Download dragon-artifac
+      - uses: actions/download-artifact@v4
+        name: Download dragon-artifac
         with:
           name: dragon-artifact
             
@@ -36,7 +37,8 @@ jobs:
     needs: ["test_job_2","build_job_1"]
     runs-on: ubuntu-latest
     steps:
-      - name: Download dragon-artifac
+      - uses: actions/download-artifact@v4
+        name: Download dragon-artifac
         with:
           name: dragon-artifact
 
