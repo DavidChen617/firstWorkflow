@@ -1,0 +1,26 @@
+name: Gernerate ASCII Artwork
+
+on:
+  push
+
+jobs:
+  ascii_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: acions/checkout@v4
+
+      - name: Install Cowsay program
+        run: sudo apt-get install cowsay -y
+
+      - name: Execute Cowsay CMD
+        run: cowsay -f dragon "Run for cover, Im a dragon ... rawr" >> dragon.txt
+
+      - name: Test File Exists
+        run: grep -i "dragon" dragon.txt
+
+      - name: Read file
+        run: cat dragon.txt
+
+      - name: Checkout Repo Files
+        run: ls
