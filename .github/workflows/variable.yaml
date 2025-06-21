@@ -5,7 +5,6 @@ on:
 
 env:
   CONTAINER_REGISTRY: docker.io
-  DOCKER_USERNAME: david
   IMAGE_NAME: github-actions-nginx
 
 jobs:
@@ -13,15 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dokcer build
-        run: echo docker build -t ${{env.CONTAINER_REGISTRY}}/${{env.DOCKER_USERNAME}}/$IMAGE_NAME:latest
+        run: echo docker build -t ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
       
       - name: Docker login
         env:
-          DOCKER_PASSWORD: asdasdasd
-        run: echo docker login --username=$DOCKER_USERNAME --password=${{env.DOCKER_PASSWORD}}
+        run: echo docker login --username=${{vars.DOCKER_USERNAME }} --password=${{secrets.DOCKER_PASSWORD}}
 
       - name: Docker publish
-        run: echo docker push ${{env.CONTAINER_REGISTRY}}/${{env.DOCKER_USERNAME}}/$IMAGE_NAME:latest
+        run: echo docker push ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
 
 
 
