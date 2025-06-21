@@ -1,0 +1,15 @@
+name: Workflow Filters and Activities
+
+on:
+  workflow_dispatch:
+
+  push:
+    branchs:
+      - main
+      - "!feature/*"
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo this workflow/job/step is executed for event type - ${{github.event_name}}
