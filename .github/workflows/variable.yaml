@@ -22,5 +22,3 @@ jobs:
       - name: Docker publish
         run: echo docker push ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
 
-
-
