@@ -31,6 +31,8 @@ jobs:
       cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
+      - name: Test
+        run: echo "Hello Test"
       - name: Docker deploy
         run: |
           echo docker deploy ....
