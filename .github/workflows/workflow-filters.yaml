@@ -7,13 +7,16 @@ on:
     branches:
       - main
       - "!feature/*"
+    
 
   pull_request:
-    type:
+    types:
       - opened
       - closed
+
     paths-ignore:
       - README.md
+      
     branches:
       - main    
 
