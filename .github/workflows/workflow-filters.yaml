@@ -8,6 +8,15 @@ on:
       - main
       - "!feature/*"
 
+  pull_request:
+    type:
+      - opened
+      - closed
+    paths-ignore:
+      - README.md
+    branches:
+      - main    
+
 jobs:
   hello:
     runs-on: ubuntu-latest
